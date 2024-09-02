@@ -6,10 +6,8 @@ import { db } from '../db/db.service'
 @Injectable()
 export class UsersService {
   async create(createUserDto: CreateUserDto) {
-    const created_user = await db.user.create({ data: {
-     
-    } })
-    return createUserDto
+    const created_user = await db.user.create({ data: createUserDto })
+    return created_user
   }
 
   findAll() {

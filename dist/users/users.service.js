@@ -11,8 +11,8 @@ const common_1 = require("@nestjs/common");
 const db_service_1 = require("../db/db.service");
 let UsersService = class UsersService {
     async create(createUserDto) {
-        const created_user = await db_service_1.db.user.create({ data: {} });
-        return createUserDto;
+        const created_user = await db_service_1.db.user.create({ data: createUserDto });
+        return created_user;
     }
     findAll() {
         return `This action returns all users`;

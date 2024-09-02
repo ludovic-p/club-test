@@ -6,14 +6,14 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Follower {
-  id           Int        @id @default(autoincrement()) @db.UnsignedInt
-  followerId   Int        @db.UnsignedInt
-  followingId  Int        @db.UnsignedInt
+  id           Int        @id @default(autoincrement())
+  followerId   Int  
+  followingId  Int
 
   // Relations
   follower     User       @relation("UserFollowers", fields: [followerId], references: [id])
@@ -31,7 +31,7 @@ model User {
   password    String
   avatar_url  String
   followers    Follower[] @relation("UserFollowers")
-  following    Follower[] @relation("UserFollowing", references: [id], fields: [id])
+  following    Follower[] @relation("UserFollowing")
   posts       Media[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

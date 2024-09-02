@@ -14,11 +14,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.db = exports.$Enums = exports.DbTypes = void 0;
+exports.db = exports.DbTypes = void 0;
 const client_1 = require("@prisma/client");
 var client_2 = require("@prisma/client");
 Object.defineProperty(exports, "DbTypes", { enumerable: true, get: function () { return client_2.Prisma; } });
-Object.defineProperty(exports, "$Enums", { enumerable: true, get: function () { return client_2.$Enums; } });
 __exportStar(require("@prisma/client"), exports);
 exports.db = new client_1.PrismaClient({});
 exports.db.$connect();
