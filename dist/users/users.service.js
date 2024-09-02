@@ -8,9 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
+const db_service_1 = require("../db/db.service");
 let UsersService = class UsersService {
-    create(createUserDto) {
-        return 'This action adds a new user';
+    async create(createUserDto) {
+        const created_user = await db_service_1.db.user.create({ data: {} });
+        return createUserDto;
     }
     findAll() {
         return `This action returns all users`;

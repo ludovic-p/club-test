@@ -1,11 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { PutUserDto } from './dto/put-user.dto';
+import { db } from '../db/db.service'
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  async create(createUserDto: CreateUserDto) {
+    const created_user = await db.user.create({ data: {
+     
+    } })
+    return createUserDto
   }
 
   findAll() {
